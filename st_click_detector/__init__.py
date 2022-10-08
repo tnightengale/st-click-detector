@@ -13,7 +13,7 @@ else:
     _component_func = components.declare_component("st_click_detector", path=build_dir)
 
 
-def click_detector(html_content, key=None):
+def click_detector(key=None):
     """Display HTML content and detect when links are clicked on".
 
     Parameters
@@ -27,7 +27,7 @@ def click_detector(html_content, key=None):
         The id of the last link clicked on (or "" before any click)
 
     """
-    component_value = _component_func(html_content=html_content, key=key, default="",)
+    component_value = _component_func(key=key, default="",)
 
     return component_value
 
@@ -40,7 +40,7 @@ if not _RELEASE:
         <a href='#' id='Image 1'><img width='20%' src='https://images.unsplash.com/photo-1565130838609-c3a86655db61?w=200'></a>
         <a href='#' id='Image 2'><img width='20%' src='https://images.unsplash.com/photo-1565372195458-9de0b320ef04?w=200'></a>
         """
-    clicked = click_detector(content)
+    clicked = click_detector()
 
     st.markdown(
         f"<p><b>{clicked} clicked</b></p>"
